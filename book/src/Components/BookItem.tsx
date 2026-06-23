@@ -1,31 +1,41 @@
 import type { Book } from "../types/Book"
-import { bookService } from "../services/bookService"
+import '../css/Item.css'
+import React from "react";
 
 type Props ={
     info: Book;
     onDelete: (id: string) => void
 }
 
-export default function BookItem({info}: Props){
+export default function BookItem({info, onDelete}: Props){
     
     async function handledelete() {
+       
         if(!info._id) return
         try{
-            await bookService.delete(info._id)
-        }catch(error){
+            onDelete(info._id)
+        }
+        catch(error){
             console.error('Não foi possível excluir o item', error)
         }
     }
 
+    const unreadStyle: React.CSSProperties ={
+        color:'#8a0000'
+    }
+    const readStyle: React.CSSProperties ={
+        color:'#146c03'
+    }
+
     return(
-        <div>
-                <h1>{info.title}</h1>
-                <div>
-                    <p>{info.author}</p>
-                    <p>{info.genre}</p>
-                </div>
-                <p>{info.read}</p>
-                <button onClick={handledelete}>Delete</button>
+        <div className="Item">
+            <h2 className="Title">{info.title}</h2>
+            <div className="BoxStr">
+                <p><strong>Autor:</strong> {info.author}</p>
+                <p><strong>Genero:</strong> {info.genre}</p>
+            </div>
+            <p style={info.read?readStyle:unreadStyle}>{info.read?"Lido": "Não Lido"}</p>
+            <button className="DeleteBtn" onClick={handledelete}>Delete</button>
         </div>
     )
 }

@@ -1,5 +1,6 @@
 import type { Book } from "../types/Book"
 import BookItem from "./BookItem"
+import '../css/List.css'
 
 
 type Props={
@@ -10,7 +11,7 @@ type Props={
 export default function BookList({list, onDelete}: Props){
     
     return(
-        <div>   
+        <div className="List">   
             {list.map(item =>(<BookItem key={item._id} info={item} onDelete={onDelete}/>))}
         </div>
     )

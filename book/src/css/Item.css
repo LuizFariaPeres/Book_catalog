@@ -1,0 +1,45 @@
+.Item{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    gap: 0.4rem;
+    padding: 0.5rem;
+    border: 2px solid black;
+    border-radius: 16px;
+    color: rgb(32, 32, 140);
+    transition: 2s ease-in-out;
+    font-size: 23px;
+}
+.Title {
+    color: rgb(44, 1, 85);
+    align-self: center;
+    font-style: italic;
+    text-decoration:underline;
+}
+.BoxStr{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: rgb(32, 32, 140);
+
+}
+strong{
+    text-decoration: underline;
+    color: rgb(32, 32, 140);
+}
+.DeleteBtn{
+    width: 15%;
+    padding: 0.4rem;
+    border: 2px solid rgb(91, 2, 97);
+    border-radius: 5px;
+    align-self: center;
+    transition: 0.9s ease-in-out;
+    font-size: 20px;
+
+    &:hover{
+        transition: 0.9s ease-in-out;
+        background-color: brown;
+        color: white;
+    }
+}
